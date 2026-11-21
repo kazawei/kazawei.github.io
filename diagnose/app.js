@@ -285,25 +285,46 @@
 
   /* ------------------------------------------------------------ 数据 */
   async function loadData() {
-    const urls = ['../data/topics.json', '../data/dependencies.json', '../data/cn-curriculum-standards.json', '../data/id-aliases.json'];
-    const rs = await Promise.all(urls.map(function (u) { return fetch(u); }));
-    rs.forEach(function (r, i) { if (!r.ok) throw new Error(urls[i] + ' → HTTP ' + r.status); });
-    const js = await Promise.all(rs.map(function (r) { return r.json(); }));
-    // 题库可选：缺失（404）或损坏时回退到 topics.json 的 diagnostic_question
-    let questions = null;
+    const [stRes, alRes] = await Promise.all([
+      fetch('../data/cn-curriculum-standards.json'),
+      fetch('../data/id-aliases.json')
+    ]);
+    if (!stRes.ok) throw new Error('../data/cn-curriculum-standards.json → HTTP ' + stRes.status);
+    const standards = await stRes.json();
+    const aliases = alRes.ok ? await alRes.json() : { aliases: {} };
+
+    let topics = null, deps = null, questions = null;
+    // 按学科分包：只取当前学科的知识点、先修边和题库，避免整站十几 MB 一次灌进来。
     try {
-      const qr = await fetch('../data/questions.json');
-      if (qr.ok) questions = await qr.json();
-    } catch (e) { questions = null; }
-    const topics = js[0].filter(function (t) { return E.subjectOf(t) === subject; });
+      const pr = await fetch('../data/packs/' + encodeURIComponent(subject) + '.json');
+      if (pr.ok) {
+        const pack = await pr.json();
+        topics = pack.topics || null;
+        deps = pack.deps || null;
+        questions = pack.questions || null;
+      }
+    } catch (e) { topics = null; }
+    if (!topics) {
+      const urls = ['../data/topics.json', '../data/dependencies.json'];
+      const rs = await Promise.all(urls.map(function (u) { return fetch(u); }));
+      rs.forEach(function (r, i) { if (!r.ok) throw new Error(urls[i] + ' → HTTP ' + r.status); });
+      const js = await Promise.all(rs.map(function (r) { return r.json(); }));
+      topics = js[0]; deps = js[1];
+      try {
+        const qr = await fetch('../data/questions.json');
+        if (qr.ok) questions = await qr.json();
+      } catch (e) { questions = null; }
+    }
+
+    topics = topics.filter(function (t) { return E.subjectOf(t) === subject; });
     const allow = {};
     topics.forEach(function (t) { allow[t.id] = true; });
-    const deps = js[1].filter(function (d) { return allow[d.topicId] && allow[d.prerequisiteId]; });
+    deps = (deps || []).filter(function (d) { return allow[d.topicId] && allow[d.prerequisiteId]; });
     if (questions) questions = questions.filter(function (q) { return allow[q.topicId]; });
     const stdById = {};
-    js[2].items.forEach(function (x) { stdById[x.id] = x; });
+    standards.items.forEach(function (x) { stdById[x.id] = x; });
     const graph = E.buildGraph(topics, deps, questions);
-    D = { topics: topics, deps: deps, stdById: stdById, graph: graph, tree: buildTree(topics), aliases: (js[3] && js[3].aliases) || {} };
+    D = { topics: topics, deps: deps, stdById: stdById, graph: graph, tree: buildTree(topics), aliases: (aliases && aliases.aliases) || {} };
   }
 
   function buildTree(topics) {
