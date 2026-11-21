@@ -2,185 +2,121 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>中小学·高中知识图谱</title>
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="中小学·高中知识图谱">
-<meta property="og:title" content="中小学·高中知识图谱">
-<meta property="og:description" content="孩子哪块没学扎实，3 分钟测出来：沿先修关系往回找到薄弱根因。覆盖数学、语文、英语等十个学科，小学到高中，免费自测。">
-<meta property="og:url" content="https://math.pansgo.com/">
-<meta property="og:image" content="https://math.pansgo.com/assets/og-cover.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="中小学·高中知识图谱">
-<meta name="twitter:description" content="孩子哪块没学扎实，3 分钟测出来：沿先修关系往回找到薄弱根因。覆盖数学、语文、英语等十个学科，小学到高中，免费自测。">
-<meta name="twitter:image" content="https://math.pansgo.com/assets/og-cover.jpg">
-
-<meta name="description" content="数学（小学到高中）、语文（小学一至六年级、初中七至九年级、高中必修上册、必修下册、选择性必修上册、中册、下册）、科学（小学一至六年级）、道德与法治（小学一至六年级）、历史（初中七至九年级、高中必修与选择性必修）、地理（初中七至八年级、高中必修与选择性必修）、生物（初中七至八年级、高中必修与选择性必修）、化学（初中九年级、高中必修第一、二册和选择性必修第一、二、三册）、英语（三年级到高中）和物理（初中、高中）的知识图谱。沿先修关系自适应出题，从选中的知识点往回找到薄弱根因。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23dff3ef%22%20stroke%3D%22%230f6e62%22%20stroke-width%3D%221.7%22%20stroke-linejoin%3D%22round%22%20d%3D%22M6.6%204.8H17L27.4%2015.2V25Q27.4%2027.4%2025.2%2027.4H6.6Q4.4%2027.4%204.4%2025.2V7Q4.4%204.8%206.6%204.8Z%22%2F%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M17.7%206.3%2026.1%2014.7H17.7Z%22%2F%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%230f6e62%22%20stroke-width%3D%221.35%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M17.7%206.3V14.7H26.1%22%2F%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%230f6e62%22%20stroke-width%3D%222.15%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M8.3%2024.2H12.4Q14.2%2024.2%2014.2%2022.4V20.2Q14.2%2018.6%2016%2018.6H18.8%22%2F%3E%3Cpath%20fill%3D%22%230f6e62%22%20d%3D%22M18.5%2016.85%2023%2018.6%2018.5%2020.35Z%22%2F%3E%3C%2Fsvg%3E">
-<script>
-(function () {
-  var id = location.hash.replace(/^#/, '');
-  try { id = decodeURIComponent(id); } catch (e) { return; }
-  if (/^cnm_[A-Za-z0-9]+$/.test(id)) {
-    document.documentElement.style.visibility = 'hidden';
-    location.replace('explore/#' + encodeURIComponent(id));
-  } else if (/^cne_[A-Za-z0-9]+$/.test(id)) {
-    document.documentElement.style.visibility = 'hidden';
-    location.replace('explore/?subject=english#' + encodeURIComponent(id));
-  } else if (/^cnp_[A-Za-z0-9]+$/.test(id)) {
-    document.documentElement.style.visibility = 'hidden';
-    location.replace('explore/?subject=physics#' + encodeURIComponent(id));
-  } else if (/^cns_[A-Za-z0-9]+$/.test(id)) {
-    document.documentElement.style.visibility = 'hidden';
-    location.replace('explore/?subject=science#' + encodeURIComponent(id));
-  } else if (/^cnc_[A-Za-z0-9]+$/.test(id)) {
-    document.documentElement.style.visibility = 'hidden';
-    location.replace('explore/?subject=chinese#' + encodeURIComponent(id));
-  } else if (/^cnd_[A-Za-z0-9]+$/.test(id)) {
-    document.documentElement.style.visibility = 'hidden';
-    location.replace('explore/?subject=morality#' + encodeURIComponent(id));
-  } else if (/^cnh_[A-Za-z0-9]+$/.test(id)) {
-    document.documentElement.style.visibility = 'hidden';
-    location.replace('explore/?subject=history#' + encodeURIComponent(id));
-  } else if (/^cng_[A-Za-z0-9]+$/.test(id)) {
-    document.documentElement.style.visibility = 'hidden';
-    location.replace('explore/?subject=geography#' + encodeURIComponent(id));
-  } else if (/^cnb_[A-Za-z0-9]+$/.test(id)) {
-    document.documentElement.style.visibility = 'hidden';
-    location.replace('explore/?subject=biology#' + encodeURIComponent(id));
-  } else if (/^cnk_[A-Za-z0-9]+$/.test(id)) {
-    document.documentElement.style.visibility = 'hidden';
-    location.replace('explore/?subject=chemistry#' + encodeURIComponent(id));
-  }
-})();
-</script>
-<link rel="stylesheet" href="assets/site.css">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<meta name="theme-color" content="#0f6e62">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="知识图谱">
-<link rel="stylesheet" href="assets/pwa.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>初一（广州）学习驾驶舱 · 知识图谱与自适应诊断</title>
+<meta name="description" content="给广州初一孩子的学习入口：数学、英语等学科按先修关系自适应出题，找到真正没学扎实的那一步。">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+body{background:#f6f3ec}
+.g7wrap{max-width:1080px;margin:0 auto;padding:28px 18px 70px}
+.g7hero{background:#0f6e62;color:#fff;border-radius:14px;padding:28px 26px;margin-bottom:22px}
+.g7hero .eyebrow{font-size:12px;letter-spacing:.16em;opacity:.8;margin:0 0 8px}
+.g7hero h1{font-size:28px;margin:0 0 10px;line-height:1.35}
+.g7hero p{margin:0;font-size:14.5px;line-height:1.8;opacity:.94;max-width:760px}
+.g7hero .acts{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.g7hero a{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none;font-size:14px}
+.g7hero a.primary{background:#fff;color:#0f6e62;font-weight:600}
+.g7hero a.ghost{border:1px solid rgba(255,255,255,.65);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.g7hero h1{font-size:23px}}
+.card{background:#fff;border:1px solid #e3ded2;border-radius:12px;padding:18px 18px 16px}
+.card h2{font-size:17px;margin:0 0 6px;color:#173f38}
+.card .tag{display:inline-block;font-size:11px;color:#0f6e62;background:#e7f1ee;padding:2px 7px;border-radius:4px;margin-bottom:8px}
+.card p{font-size:13px;line-height:1.75;color:#5b564c;margin:0 0 12px}
+.card .links{display:flex;gap:8px;flex-wrap:wrap}
+.card .links a{font-size:13px;text-decoration:none;color:#0f6e62;border:1px solid #bcd6cf;padding:6px 10px;border-radius:6px}
+.card .links a:hover{background:#e7f1ee}
+.card .links a.main{background:#0f6e62;color:#fff;border-color:#0f6e62}
+.note{background:#fdf7e8;border:1px solid #e8d9ae;border-radius:10px;padding:14px 16px;font-size:12.5px;line-height:1.8;color:#5b4a24;margin-top:16px}
+.steps{background:#fff;border:1px solid #e3ded2;border-radius:12px;padding:18px;margin-top:16px}
+.steps h2{font-size:17px;margin:0 0 10px;color:#173f38}
+.steps ol{margin:0;padding-left:20px;font-size:13.5px;line-height:1.9;color:#4d483f}
+footer{max-width:1080px;margin:24px auto 0;padding:0 18px;font-size:11.5px;color:#7a7468;line-height:1.8}
+</style>
 </head>
-<body class="page-home">
-<a class="top-banner" href="https://test.pansgo.com/?from=math-top" target="_blank" rel="noopener">🧠 儿童智商测试</a>
-<header class="site-header">
-  <a class="brand" href="./">
-    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><path fill="var(--logo-sheet)" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M6.6 4.8H17L27.4 15.2V25Q27.4 27.4 25.2 27.4H6.6Q4.4 27.4 4.4 25.2V7Q4.4 4.8 6.6 4.8Z"/><path fill="var(--logo-fold)" d="M17.7 6.3 26.1 14.7H17.7Z"/><path fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" d="M17.7 6.3V14.7H26.1"/><path fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round" d="M8.3 24.2H12.4Q14.2 24.2 14.2 22.4V20.2Q14.2 18.6 16 18.6H18.8"/><path fill="currentColor" d="M18.5 16.85 23 18.6 18.5 20.35Z"/></svg>
-    <span class="brand-copy">
-      <span class="brand-name">中小学·高中知识图谱</span>
-      <span class="brand-kicker">学习路径</span>
-    </span>
-  </a>
-  <nav class="site-nav" aria-label="主导航">
-    <div class="subject-switch" role="group" aria-label="学科">
-      <a class="nav-link subject-link on" data-subject="math" href="./">数学</a>
-      <a class="nav-link subject-link" data-subject="chinese" href="./?subject=chinese">语文</a>
-      <a class="nav-link subject-link" data-subject="science" href="./?subject=science">科学</a>
-      <a class="nav-link subject-link" data-subject="morality" href="./?subject=morality">道法</a>
-      <a class="nav-link subject-link" data-subject="history" href="./?subject=history">历史</a>
-      <a class="nav-link subject-link" data-subject="geography" href="./?subject=geography">地理</a>
-      <a class="nav-link subject-link" data-subject="biology" href="./?subject=biology">生物</a>
-      <a class="nav-link subject-link" data-subject="chemistry" href="./?subject=chemistry">化学</a>
-      <a class="nav-link subject-link" data-subject="english" href="./?subject=english">英语</a>
-      <a class="nav-link subject-link" data-subject="physics" href="./?subject=physics">物理</a>
+<body>
+<main class="g7wrap">
+  <div class="g7hero">
+    <p class="eyebrow">GRADE 7 · GUANGZHOU · 2026</p>
+    <h1>初一（广州）学习驾驶舱</h1>
+    <p>基于 3,984 个知识点、6,284 条先修关系做的自适应诊断：先测目标，答错才往回追，追到真正没学扎实的那一步，再按年级排出一条补齐路径。数学、英语、语文、道法、历史、地理、生物都在里面。英语七上按广州在用的沪教牛津（2024）U1—U8 编排，数学按人教版 2024 审定版。</p>
+    <div class="acts">
+      <a class="primary" href="../diagnose/?grade=七年级&amp;volume=上">数学七上 · 整体诊断</a>
+      <a class="primary" href="../diagnose/?subject=english&amp;grade=七年级&amp;volume=上">英语七上 · 整体诊断</a>
+      <a class="primary" href="https://4m31wwntqtsvk.doubao.link/app/app_17jgd3umq29">单文件版 · 打开即用</a>
+      <a class="ghost" href="../explore/">浏览知识图谱</a>
+      <a class="ghost" href="../children/">建立孩子档案</a>
     </div>
-    <div class="page-links">
-      <a class="nav-link active" href="./" aria-current="page">首页</a>
-      <a class="nav-link" href="explore/">知识图谱</a>
-      <a class="nav-link" href="diagnose/">诊断</a>
-      <a class="nav-link" href="children/">档案</a>
-      <a class="nav-link" href="wrongbook/">错题本</a>
-      <a class="nav-link" href="goods/">学习好物</a>
-      <a class="nav-link" href="kp/">知识点索引</a>
-      <a class="nav-link" href="https://github.com/xiaoyang111222/cn-math-taxonomy" target="_blank" rel="noopener noreferrer">关于</a>
-      <a class="nav-link resource-search-btn" href="https://pansgo.com" target="_blank" rel="noopener noreferrer" title="网盘资源搜索">
-        <svg class="resource-search-ico" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M11.5 10.4a5.5 5.5 0 1 0-1.1 1.1l3 3a.75.75 0 0 0 1.06-1.06zM7 11.5A4.5 4.5 0 1 1 7 2.5a4.5 4.5 0 0 1 0 9z"/></svg>资源搜索
-      </a>
-    </div>
-  </nav>
-</header>
-<main class="home">
-  <section style="max-width:1080px;margin:18px auto 0;padding:0 18px">
-    <a href="g7/" style="display:flex;gap:16px;align-items:center;justify-content:space-between;background:#0f6e62;color:#fff;text-decoration:none;border-radius:12px;padding:16px 20px;flex-wrap:wrap">
-      <span style="font-size:13px;line-height:1.6"><b style="font-size:16px">初一（广州）学习驾驶舱</b><br>数学、英语七上整册诊断 + 沪教牛津期末模拟卷，给 12 岁初一孩子用</span>
-      <span style="border:1px solid rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:13px;white-space:nowrap">进入初一入口 →</span>
-    </a>
-  </section>
-
-  <section class="hero">
-    <p class="eyebrow">数学：小学到高中 · 语文：小学一至六年级 · 初中七至九年级 · 高中必修上、下与选必上、中、下 · 科学：小学一至六年级 · 道德与法治：小学一至六年级 · 历史：初中七至九年级 · 高中必修与选择性必修 · 地理：初中七至八年级 · 高中必修与选择性必修 · 生物：初中七至八年级 · 高中必修与选择性必修 · 化学：初中九年级 · 高中必修第一、二册和选择性必修第一、二、三册 · 英语：三年级到高中 · 物理：初中到高中</p>
-    <h1>先找到真正没学会的那一步</h1>
-    <p class="lede">沿着先修关系自适应出题。数学从小学追到高中，语文覆盖统编版小学一至六年级、初中七至九年级和高中必修上册、必修下册、选择性必修上册、中册、下册，科学覆盖教科版小学一至六年级，道德与法治覆盖统编版小学一至六年级，历史覆盖统编版初中七至九年级和高中必修（中外历史纲要上、下）、选择性必修，地理覆盖人教版初中七至八年级和高中必修第一、二册、选择性必修第一、二、三册，生物覆盖人教版初中七至八年级和高中必修1、2、选择性必修1、2、3，化学覆盖人教版初中九年级、高中必修第一、二册和选择性必修第一、二、三册，英语覆盖三年级到高中，物理覆盖初中八、九年级和高中必修、选择性必修。从你选的知识点往回追，定位薄弱根因，并给出一条按学习顺序排起的路径。</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary btn-lg" href="diagnose/">开始诊断</a>
-      <a class="btn btn-lg" href="explore/">浏览知识图谱</a>
-      <a class="btn btn-lg" href="goods/">学习好物</a>
-    </div>
-    <p class="quiet-link"><a href="diagnose/?target=cnm_221&amp;demo=1">先看一遍演示：配方法</a></p>
-  </section>
-
-  <h2 class="section-title">三步</h2>
-  <ol class="steps">
-    <li>
-      <span class="step-no">1</span>
-      <h3>选知识点</h3>
-      <p>数学从一年级到高中必修和选择性必修，语文从一年级到九年级，以及高中必修上册、必修下册、选择性必修上册、中册、下册，科学和道德与法治从一年级到六年级，历史从七年级到九年级，地理从七年级到八年级，生物从七年级到八年级，化学在九年级、高中必修第一、二册和选择性必修第一、二、三册，英语从三年级到高中，物理从八年级上册到高中选择性必修第三册。搜索或按册、章找到想检查的内容。</p>
-    </li>
-    <li>
-      <span class="step-no">2</span>
-      <h3>自适应答题</h3>
-      <p>先问目标本身。答错再出一道同级或更容易的题，仍然错才沿着先修往回追。</p>
-    </li>
-    <li>
-      <span class="step-no">3</span>
-      <h3>找到根因和学习路径</h3>
-      <p>标出薄弱根因和不稳的点，并按年级从低到高排出建议补学的顺序。</p>
-    </li>
-  </ol>
-
-  <h2 class="section-title">图谱里有什么</h2>
-  <div class="stat-grid" id="stats">
-    <div class="stat-card"><div class="stat-num" id="n-topics">…</div><div class="stat-label">知识点</div></div>
-    <div class="stat-card"><div class="stat-num" id="n-edges">…</div><div class="stat-label">先修边</div></div>
-    <div class="stat-card"><div class="stat-num" id="n-questions">…</div><div class="stat-label">题目</div></div>
-    <div class="stat-card"><div class="stat-num" id="n-standards">…</div><div class="stat-label">课标条目</div></div>
   </div>
-  <p class="stat-note">以上数字在打开页面时从当前学科的知识点、先修、题库和课标统计。默认是数学。</p>
-  <div id="load-error" class="load-error" hidden></div>
 
-  <section class="blind-home" id="blind-home" hidden>
-    <h2 class="section-title">本机盲区</h2>
-    <p class="muted" id="blind-home-lead">根据本机诊断记录汇总的薄弱 / 不稳知识点。只存在这台浏览器，可一键再测。</p>
-    <ul class="blind-home-list" id="blind-home-list"></ul>
-    <p class="blind-home-actions" id="blind-home-actions"></p>
+  <div class="grid">
+    <section class="card">
+      <span class="tag">数学 · 人教版</span>
+      <h2>七上：有理数到几何图形初步</h2>
+      <p>按七上整册筛查，薄弱点会沿先修边回溯到小学的计算、分数、方程，根因和补学顺序一起给出来。</p>
+      <div class="links">
+        <a class="main" href="../diagnose/?grade=七年级&amp;volume=上">整册诊断</a>
+        <a href="../diagnose/?grade=七年级">整学年</a>
+        <a href="../explore/">看图谱</a>
+        <a href="../wrongbook/">错题本</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <span class="tag">英语 · 沪教牛津（校内同步）</span>
+      <h2>七上语法与期末卷型</h2>
+      <p>英语图谱按沪教牛津（2024）七上 U1—U8 建点，24 个知识点（每单元语法、核心词汇、语篇阅读），语法题 96 道。校内有单元测验时，用下面两套沪教牛津卷更贴。</p>
+      <div class="links">
+        <a class="main" href="../diagnose/?subject=english&amp;grade=七年级&amp;volume=上">英语整册诊断</a>
+        <a href="../english/广州初中英语语法诊断台.html">语法诊断台</a>
+        <a href="../english/广州越秀七上英语期末模拟卷A_机考版.html">期末模拟 A</a>
+        <a href="../english/广州越秀七上英语期末模拟卷B_机考版.html">期末模拟 B</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <span class="tag">其他学科</span>
+      <h2>同一天里要学的几门</h2>
+      <p>语文、道法、历史、地理、生物都有各自的图，互不连边。哪科这次考砸了，直接对那一科做整册诊断。</p>
+      <div class="links">
+        <a href="../diagnose/?subject=chinese&amp;grade=七年级">语文七上</a>
+        <a href="../diagnose/?subject=morality&amp;grade=七年级">道法七上</a>
+        <a href="../diagnose/?subject=history&amp;grade=七年级">历史七上</a>
+        <a href="../diagnose/?subject=geography&amp;grade=七年级">地理七上</a>
+        <a href="../diagnose/?subject=biology&amp;grade=七年级">生物七上</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <span class="tag">英语工具</span>
+      <h2>语法、音标、期中卷</h2>
+      <p>359 题的语法通关、48 音标的可点击课件、U1—U4 期中机考，都在 english 目录里，离线也能开。</p>
+      <div class="links">
+        <a href="../english/index.html">英语材料总入口</a>
+        <a href="../english/初一英语语法通关_七上全模块.html">语法通关 359 题</a>
+        <a href="../english/音标课件_可点击版.html">音标课件</a>
+        <a href="../english/初一英语期中机考_沪教版U1-U4.html">期中机考</a>
+      </div>
+    </section>
+  </div>
+
+  <section class="steps">
+    <h2>怎么用，才不是又刷一遍题</h2>
+    <ol>
+      <li>第一次先建档案：<a href="../children/">孩子档案</a>，选七年级，诊断记录会按科目存下来。</li>
+      <li>每周选一科做一次「整册诊断」，题量 20—30 题就够，别一次刷完。</li>
+      <li>结果页只看三样：薄弱根因、不稳的点、按年级排的学习路径。先补路径最前面的两个点。</li>
+      <li>补完隔三天再做同一年级，对比薄弱点有没有往前移。移不动，说明补的还是表层。</li>
+      <li>错题会自动进 <a href="../wrongbook/">错题本</a>，考前只看错题本，不再重刷整卷。</li>
+    </ol>
   </section>
 
-  <a class="finals-card" id="finals-card" href="finals/">
-    <strong>期末补漏计划</strong>
-    <span class="finals-sub">7 天排好：每天几个薄弱知识点，看讲解、做题、打卡，第 7 天复测</span>
-  </a>
-
-  <h2 class="section-title">按年级进入</h2>
-  <div class="grade-grid" id="grades" aria-busy="true"></div>
-  <a class="iq-card" href="https://test.pansgo.com/?from=math-home" target="_blank" rel="noopener">
-    <strong>🧠 儿童智商测试</strong>
-    <span class="iq-sub">找规律 · 补图案 · 空间想象</span>
-    <span class="iq-note">趣味测评，与数学诊断无关</span>
-  </a>
+  <div class="note">
+    <b>关于教材口径：</b>数学按人教版 2024 审定版；英语七上按沪教牛津（2024）U1—U8，每单元拆语法、核心词汇、语篇阅读三个点。其他科按统编或人教版。诊断数据是 AI 初稿，先修关系还没有一线教师逐条审核，结论只当参考。
+  </div>
 </main>
-<footer class="site-footer">
-  <p><a href="https://github.com/xiaoyang111222/cn-math-taxonomy/issues/new/choose">提交 Issue</a></p>
+<footer>
+  本项目基于 <a href="https://github.com/xiaoyang111222/cn-math-taxonomy" target="_blank" rel="noopener">xiaoyang111222/cn-math-taxonomy</a>（CC BY-NC 4.0，非商业）复制并做本地化改动；英语自测材料为自有内容。仅限家庭学习使用。
 </footer>
-<script src="assets/stem-compat.js"></script>
-<script src="assets/children.js"></script>
-<script src="assets/blindspots.js"></script>
-<script src="assets/home.js"></script>
-<script src="assets/stats-config.js"></script>
-<script src="assets/stats.js"></script>
-<script src="assets/pwa.js"></script>
 </body>
 </html>
